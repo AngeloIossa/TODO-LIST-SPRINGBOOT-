@@ -9,5 +9,6 @@ public interface TasksService {
 	List<Task> getAll();
 	List<Task> getDoneTasks();
 	List<Task> getTasks();
+	void deleteTask(long id);
 	
 }

@@ -36,6 +36,11 @@ public class TasksServiceImpl implements TasksService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void deleteTask(long id) {
+		tasksRepository.deleteById(id);
+	}
 	
 	
 }
