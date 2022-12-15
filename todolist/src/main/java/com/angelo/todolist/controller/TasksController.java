@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.angelo.todolist.model.Task;
@@ -33,6 +34,16 @@ public class TasksController {
 		task.setStatus(true);
 		System.out.println("Debug: " + task.getTask());
 		tasksService.saveTask(task);
+		return new ModelAndView("redirect:/");
+	}
+	
+	@RequestMapping(value = "/savetask/{sourceText}", method = RequestMethod.GET)
+	public ModelAndView saveTask1(@RequestParam String sourceText) {
+		Task taskSwap = new Task();
+		taskSwap.setTask(sourceText);
+		taskSwap.setStatus(true);
+		System.out.println("Debug: " + taskSwap.getTask());
+		tasksService.saveTask(taskSwap);
 		return new ModelAndView("redirect:/");
 	}
 	

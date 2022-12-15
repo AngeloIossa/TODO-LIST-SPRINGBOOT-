@@ -12,19 +12,16 @@
 </head>
 <body>
 	<div class="container">
-		<form method="post" th:action="@{/}" th:object="${task}">
+		<form th:action="@{|/savetask/${sourceText}|}" method="get" th:object="${task}">
 			<div class="form-group" style="margin-top: 50px;">
 				<div class="input-group">
-					<input type="text" id="task" th:field="*{task}"
+					<input type="text" name="sourceText" th:value="${sourceText}"
 						class="form-control" required>
-					<input type="hidden" id="status" th:field="*{status}"
-						class="form-control" value="true">
-						
 					<button type="submit" class="btn btn-primary">Add task</button>
 				</div>
 			</div>
 		</form>
-
+		
 		<table class="table table-hover" style="margin-top: 20px;">
 			<thead>
 				<tr>
